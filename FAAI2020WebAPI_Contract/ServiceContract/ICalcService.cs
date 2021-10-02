@@ -1,4 +1,4 @@
-﻿namespace FAAI2020WebAPI_Contract.Services
+﻿namespace FAAI2020WebAPI_Contract.ServiceContract
 {
     public interface ICalcService
     {

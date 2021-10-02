@@ -1,6 +1,6 @@
 ﻿namespace FAAI2020WebAPi.Controllers
 {
-    using FAAI2020WebAPI_Contract.Services;
+    using FAAI2020WebAPI_Contract.ServiceContract;
     using Microsoft.AspNetCore.Mvc;
 
     [ApiController]

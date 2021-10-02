@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FAAI2020WebAPI_Contract\FAAI2020WebAPI_Contract.csproj" />
+  </ItemGroup>
+
+</Project>
