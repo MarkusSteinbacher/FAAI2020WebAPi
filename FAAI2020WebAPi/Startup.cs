@@ -1,6 +1,8 @@
 namespace FAAI2020WebAPi
 {
-    using FAAI2020WebAPI_Contract.Services;
+    using FAAI2020WebAPI_Contract.PersitentContract;
+    using FAAI2020WebAPI_Contract.ServiceContract;
+    using FAAI2020WebAPI_PersistentFile;
     using FAAI2020WebAPI_Services;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
@@ -21,14 +23,15 @@ namespace FAAI2020WebAPi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.AddControllers()
-            //    .AddXmlDataContractSerializerFormatters();
+
+            services.AddControllers();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "FAAI2020WebAPi", Version = "v1" });
             });
 
-            services.AddTransient<ICalcService, CalcService>();
+            services.AddTransient<IPersonService, PersonService>();
+            services.AddTransient<IPresitentContract, FileHandler>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

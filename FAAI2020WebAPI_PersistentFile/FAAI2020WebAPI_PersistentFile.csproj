@@ -5,7 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="FileHelpers" Version="3.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\FAAI2020WebAPI_Contract\FAAI2020WebAPI_Contract.csproj" />
+    <ProjectReference Include="..\FAAI2020WebAPI_Model\FAAI2020WebAPI_Model.csproj" />
   </ItemGroup>
 
 </Project>
