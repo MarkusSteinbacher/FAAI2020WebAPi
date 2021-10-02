@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\FAAI2020WebAPI_Contract\FAAI2020WebAPI_Contract.csproj" />
+    <ProjectReference Include="..\FAAI2020WebAPI_PersistentFile\FAAI2020WebAPI_PersistentFile.csproj" />
     <ProjectReference Include="..\FAAI2020WebAPI_Services\FAAI2020WebAPI_Services.csproj" />
   </ItemGroup>
 

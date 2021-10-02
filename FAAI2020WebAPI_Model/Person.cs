@@ -1,9 +1,16 @@
-﻿using System;
-
-namespace FAAI2020WebAPI_Model
+﻿namespace FAAI2020WebAPI_Model
 {
-    public class Person
+    using FAAI2020WebAPI_Contract.PersitentContract;
+    using FileHelpers;
+    using System;
+
+    [DelimitedRecord(";")]
+    public class Person : IPerson
     {
-        // Das ist ein test
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+
+        [FieldConverter(ConverterKind.Date, "ddMMyyyy")]
+        public DateTime DayOfBirth { get; set; }
     }
 }
