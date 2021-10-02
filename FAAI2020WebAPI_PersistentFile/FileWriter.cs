@@ -7,7 +7,7 @@
     {
         public void Write<T>(T data)
         {
-            throw new NotImplementedException();
+            //haha
         }
     }
 }
