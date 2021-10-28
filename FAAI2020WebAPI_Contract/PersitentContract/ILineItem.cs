@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FAAI2020WebAPI_Contract.PersitentContract
 {
-    public interface IPersistentLineItem
+    public interface ILineItem
     {
         public string ArticleId { get; set; }
         public double Quantity { get; set; }
