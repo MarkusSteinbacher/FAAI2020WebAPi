@@ -21,7 +21,7 @@ namespace FAAI2020WebAPi.Controllers
 		}
 
 		[HttpGet]
-		public ActionResult Person()
+		public ActionResult GetOrder()
 		{
 			var result = this.orderService.GetOrders();
 			if (result != null && result.Any())
@@ -32,7 +32,7 @@ namespace FAAI2020WebAPi.Controllers
 		}
 
 		[HttpPost]
-		public ActionResult Person([FromBody] Order order)
+		public ActionResult PostOrder([FromBody] Order order)
 		{
 			this.orderService.WriteOrder(order);
 			return Ok();
