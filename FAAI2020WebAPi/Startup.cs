@@ -31,6 +31,8 @@ namespace FAAI2020WebAPi
 
             services.AddTransient<IPersonService, PersonService>(); 
             services.AddTransient<IPersistentContract, FileHandler>();
+            services.AddTransient<IOrderService, OrderService>();
+            services.AddTransient<IPersistentOrderContract, OrderFileHandler>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
