@@ -1,33 +1,30 @@
 ﻿using FAAI2020WebAPI_Contract.PersitentContract;
-using FAAI2020WebAPI_Model;
-using FileHelpers;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FAAI2020WebAPI_PersistentFile
 {
-	public class LineItemFileHandler : IPresistentLineItemContract
+	public class LineItemFileHandler : BaseFileHandler<ILineItem> ,IPresistentLineItemContract
 	{
-        public IEnumerable<ILineItem> Read()
+        public LineItemFileHandler() : base(typeof(ILineItem))
         {
-            FileHelperEngine fileHelperEngine = new FileHelperEngine(typeof(LineItem));
-            var result = (IEnumerable<ILineItem>)fileHelperEngine.ReadFile($@"C:\Users\Administrator\Desktop\FileHelper\LineItems.txt");
-            return result;
         }
 
-        public ILineItem Read(string id)
+        protected override string FileName => "LineItems.txt";
+
+        public IEnumerable<ILineItem> ReadLineItems()
         {
-            throw new NotImplementedException();
+            return this.Read();
         }
 
-        public void Write(ILineItem lineItem)
+        public ILineItem ReadLineItem(string id)
         {
-            FileHelperEngine fileHelperEngine = new FileHelperEngine(typeof(LineItem));
-            fileHelperEngine.WriteFile($@"C:\Users\Administrator\Desktop\FileHelper\LineItems.txt", new List<ILineItem>() { lineItem });
-            fileHelperEngine.AppendToFile($@"C:\Users\Administrator\Desktop\FileHelper\LineItems.txt", new List<ILineItem>() { lineItem });
+            return this.Read().FirstOrDefault(f => f.ArticleId == id);
+        }
+
+        public void WriteLineItem(ILineItem lineItem)
+        {
+            this.Write(lineItem);
         }
     }
 }
