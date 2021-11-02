@@ -8,8 +8,9 @@ namespace FAAI2020WebAPI_Contract.PersitentContract
 {
 	public interface IPresistentLineItemContract
 	{
-		void Write(ILineItem lineItem);
-		IEnumerable<ILineItem> Read();
-		ILineItem Read(string id);
+		void WriteLineItem(ILineItem lineItem);
+		IEnumerable<ILineItem> ReadLineItems();
+		ILineItem ReadLineItem(string id);
+		ILineItem ReadLineItem(Func<ILineItem, bool> func);
 	}
 }
