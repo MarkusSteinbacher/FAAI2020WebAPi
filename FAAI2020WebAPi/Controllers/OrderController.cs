@@ -18,7 +18,7 @@
         }
 
         [HttpGet]
-        public ActionResult Person()
+        public ActionResult GetOrder()
         {
             var result = this._OrderService.GetOrders();
             if (result != null && result.Any())
@@ -28,7 +28,7 @@
         }
 
         [HttpPost]
-        public ActionResult Person([FromBody] Order order)
+        public ActionResult CreateOrder([FromBody] Order order)
         {
             this._OrderService.WriteOrder(order);
             return Ok();
