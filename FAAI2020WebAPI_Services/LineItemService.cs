@@ -19,12 +19,12 @@ namespace FAAI2020WebAPI_Services
 
 		public IQueryable<ILineItem> GetLineItems()
 		{
-			return this.presistentLineItemContract.Read().AsQueryable();
+			return this.presistentLineItemContract.ReadLineItems().AsQueryable();
 		}
 
 		public void WriteLineItems(ILineItem lineItem)
 		{
-			this.presistentLineItemContract.Write(lineItem);
+			this.presistentLineItemContract.WriteLineItem(lineItem);
 		}
 	}
 }
