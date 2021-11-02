@@ -9,28 +9,27 @@ using System.Threading.Tasks;
 
 namespace FAAI2020WebAPI_PersistentFile
 {
-	public class OrderFileHandler : IPersistentOrderContract
+	public class OrderFileHandler : BaseFileHandler<IOrder>, IPersistentOrderContract
 	{
-        public IEnumerable<IOrder> Read()
+        protected override string FileName => "Ordes.txt";
+
+        public OrderFileHandler() : base(typeof(IOrder))
         {
-            FileHelperEngine fileHelperEngine = new FileHelperEngine(typeof(Order));
-            var result = (IEnumerable<IOrder>)fileHelperEngine.ReadFile($@"C:\Users\Administrator\Desktop\FileHelper\Orders.txt");
-            return result;
         }
 
-        public IOrder Read(string id)
-		{
-            throw new NotImplementedException();
-		}
-
-        public void Write(IOrder order)
+        public IEnumerable<IOrder> ReadOrders()
         {
-            FileHelperEngine fileHelperEngine = new FileHelperEngine(typeof(Order));
-            fileHelperEngine.WriteFile($@"C:\Users\Administrator\Desktop\FileHelper\
-                                        { DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss-fff")}Orders.txt", new List<IOrder>() { order });
+            return this.Read();
+        }
 
-            fileHelperEngine.AppendToFile($@"C: \Users\Administrator\Desktop\FileHelper\
-                                        { DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss-fff")}Orders.txt", new List<IOrder>() { order });
+        public IOrder ReadOrder(Func<IOrder, bool> func)
+        {
+            return this.Read().FirstOrDefault(func);
+        }
+
+        public void WriteOrder(IOrder order)
+        {
+            this.Write(order);
         }
     }
 

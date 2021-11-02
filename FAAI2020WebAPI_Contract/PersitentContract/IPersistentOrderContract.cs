@@ -8,8 +8,8 @@ namespace FAAI2020WebAPI_Contract.PersitentContract
 {
 	public interface IPersistentOrderContract
 	{
-		void Write(IOrder order);
-		IEnumerable<IOrder> Read();
-		IOrder Read(string id);
+		void WriteOrder(IOrder order);
+		IEnumerable<IOrder> ReadOrders();
+		IOrder ReadOrder(Func<IOrder, bool> func);
 	}
 }

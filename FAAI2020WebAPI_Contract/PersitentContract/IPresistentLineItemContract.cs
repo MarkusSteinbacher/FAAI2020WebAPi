@@ -10,7 +10,6 @@ namespace FAAI2020WebAPI_Contract.PersitentContract
 	{
 		void WriteLineItem(ILineItem lineItem);
 		IEnumerable<ILineItem> ReadLineItems();
-		ILineItem ReadLineItem(string id);
 		ILineItem ReadLineItem(Func<ILineItem, bool> func);
 	}
 }

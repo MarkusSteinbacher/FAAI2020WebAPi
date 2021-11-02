@@ -19,11 +19,6 @@
             return this.Read();
         }
 
-        public ILineItem ReadLineItem(string id)
-        {
-            return this.Read().FirstOrDefault(f => f.ArticleId == id);
-        }
-
         public ILineItem ReadLineItem(Func<ILineItem, bool> func)
         {
             return this.Read().FirstOrDefault(func);
@@ -32,6 +27,11 @@
         public void WriteLineItem(ILineItem lineItem)
         {
             this.Write(lineItem);
-        }       
+        }
+
+        public ILineItem ReadLineItem(string id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
