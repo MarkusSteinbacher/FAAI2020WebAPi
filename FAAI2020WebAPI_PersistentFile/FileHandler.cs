@@ -11,18 +11,18 @@
         public IEnumerable<IPerson> Read()
         {
             FileHelperEngine fileHelperEngine = new FileHelperEngine(typeof(Person));
-            var result = (IEnumerable<IPerson>)fileHelperEngine.ReadFile($@"C:\Users\lechn\Desktop\FileHelper\Person.txt");
+            var result = (IEnumerable<IPerson>)fileHelperEngine.ReadFile($@"C:\Users\Administrator\Desktop\FileHelper\Person.txt");
             return result;
         }
 
         public void Write(IPresistentBase data)
         {
             FileHelperEngine fileHelperEngine = new FileHelperEngine(typeof(IPresistentBase));
-            fileHelperEngine.WriteFile($@"C:\Users\lechn\Desktop\FileHelper\
-                                        {DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss-fff")}Person.txt", new List<IPresistentBase>() { data });
+            fileHelperEngine.WriteFile($@"C:\Users\Administrator\Desktop\FileHelper\
+                                        { DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss-fff")}Person.txt", new List<IPresistentBase>() { data });
 
             fileHelperEngine.AppendToFile($@"C:\Users\Administrator\Desktop\FileHelper\
-                                        {DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss-fff")}Person.txt", new List<IPresistentBase>() { data });
+                                        { DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss-fff")}Person.txt", new List<IPresistentBase>() { data });
         }
     }
 }
