@@ -1,10 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace FAAI2020WebAPI_Contract.PersitentContract
 {
     public interface IPresitentContract
     {
-        void Write(IPresistentBase data);
-        IEnumerable<IPerson> Read();
+
+        void WritePerson(IPerson person);
+        IEnumerable<IPerson> ReadPersons();
+        IPerson ReadPerson(Func<IPerson, bool> func);
     }
 }

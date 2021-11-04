@@ -9,7 +9,7 @@ namespace FAAI2020WebAPI_Contract.ServiceContract
 {
 	public interface ILineItemService
 	{
-		IQueryable<ILineItem> GetLineItems();
-		void WriteLineItems(ILineItem lineItem);
+		IQueryable<ILineItemDto> GetLineItems();
+		void WriteLineItems(ILineItemDto lineItem);
 	}
 }

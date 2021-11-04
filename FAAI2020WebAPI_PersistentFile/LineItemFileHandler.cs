@@ -28,10 +28,5 @@
         {
             this.Write(lineItem);
         }
-
-        public ILineItem ReadLineItem(string id)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
