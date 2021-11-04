@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FAAI2020WebAPI_Model
+namespace FAAI2020WebAPI_PresistentFile
 {
 	[DelimitedRecord(";")]
 	public class Order : IOrder

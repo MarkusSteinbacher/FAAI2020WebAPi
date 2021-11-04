@@ -1,4 +1,5 @@
 ﻿using FAAI2020WebAPI_Model;
+using FAAI2020WebAPI_PresistentFile;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,9 @@ namespace FAAI2020WebAPI_Services
         {
             return new LineItem()
             {
-                ArticleId = this.ArticleId
+                ArticleId = this.ArticleId,
+                Quantity = this.Quantity,
+                Text = this.Text
             };
         }
     }

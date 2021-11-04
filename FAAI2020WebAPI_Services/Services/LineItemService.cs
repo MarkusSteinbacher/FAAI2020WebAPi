@@ -1,9 +1,11 @@
 ﻿namespace FAAI2020WebAPI_Services
 {
 	using AutoMapper;
-	using FAAI2020WebAPI_Model;
 	using FAAI2020WebAPI_PersistentFile;
-	using System.Linq;
+    using FAAI2020WebAPI_PersistentFile.PresistentContracts;
+    using FAAI2020WebAPI_PresistentFile;
+    using System.Collections.Generic;
+    using System.Linq;
 
 	public class LineItemService : ILineItemService
 	{
@@ -18,10 +20,9 @@
 
 		public IQueryable<LineItemDto> GetLineItems()
 		{
-			//return this.presistentLineItemContract.ReadLineItems().AsQueryable();
-			//ToDo: Map
-			return null;
-		}
+            var result = this.mapper.Map<List<LineItemDto>>(this.presistentLineItemContract.ReadLineItems());
+            return result.AsQueryable();
+        }
 
 		public void WriteLineItems(LineItemDto lineItemDto)
 		{
