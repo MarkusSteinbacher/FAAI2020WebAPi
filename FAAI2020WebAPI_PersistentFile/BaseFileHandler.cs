@@ -32,7 +32,7 @@ namespace FAAI2020WebAPI_PersistentFile
         protected void Write(T lineItem)
         {
             if (this.TryResolveFilePath(out var path))
-                this._Engine.AppendToFile(path, new List<T>() { lineItem });
+                this._Engine.AppendToFile(path, lineItem);
         }
 
         private bool TryResolveFilePath(out string path)

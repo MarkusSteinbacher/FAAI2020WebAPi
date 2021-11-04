@@ -5,11 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FAAI2020WebAPI_Contract.ServiceContract
+namespace FAAI2020WebAPI_Services
 {
 	public interface ILineItemService
 	{
-		IQueryable<ILineItem> GetLineItems();
-		void WriteLineItems(ILineItem lineItem);
+		IQueryable<LineItemDto> GetLineItems();
+		void WriteLineItems(LineItemDto lineItem);
 	}
 }

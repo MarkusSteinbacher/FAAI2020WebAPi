@@ -1,5 +1,6 @@
 ﻿using FAAI2020WebAPI_Contract.ServiceContract;
 using FAAI2020WebAPI_Model;
+using FAAI2020WebAPI_Services;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -31,7 +32,7 @@ namespace FAAI2020WebAPi.Controllers
 		}
 
 		[HttpPost]
-		public ActionResult PostLineItem([FromBody] LineItem lineItem)
+		public ActionResult PostLineItem([FromBody] LineItemDto lineItem)
 		{
 			this.lineItemService.WriteLineItems(lineItem);
 			return Ok();

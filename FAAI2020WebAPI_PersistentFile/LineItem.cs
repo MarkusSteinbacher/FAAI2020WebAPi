@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace FAAI2020WebAPI_Model
 {
 	[DelimitedRecord(";")]
-	public class LineItem : ILineItem
+	public class LineItem
 	{
 		public string ArticleId { get; set; }
 		public double Quantity { get; set; }

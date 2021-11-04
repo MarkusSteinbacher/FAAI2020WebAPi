@@ -3,33 +3,33 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using FAAI2020WebAPI_Contract.PersitentContract;
+    using FAAI2020WebAPI_Model;
 
-    public class LineItemFileHandler : BaseFileHandler<ILineItem>, IPresistentLineItemContract
+    public class LineItemFileHandler : BaseFileHandler<LineItem>, IPresistentLineItemContract
 	{
         public LineItemFileHandler() 
-            : base(typeof(ILineItem))
+            : base(typeof(LineItem))
         {
         }
 
         protected override string FileName => "LineItems.txt";
  
-        public IEnumerable<ILineItem> ReadLineItems()
+        public IEnumerable<LineItem> ReadLineItems()
         {
             return this.Read();
         }
 
-        public ILineItem ReadLineItem(string id)
+        public LineItem ReadLineItem(string id)
         {
             return this.Read().FirstOrDefault(f => f.ArticleId == id);
         }
 
-        public ILineItem ReadLineItem(Func<ILineItem, bool> func)
+        public LineItem ReadLineItem(Func<LineItem, bool> func)
         {
             return this.Read().FirstOrDefault(func);
         }
 
-        public void WriteLineItem(ILineItem lineItem)
+        public void WriteLineItem(LineItem lineItem)
         {
             this.Write(lineItem);
         }       
