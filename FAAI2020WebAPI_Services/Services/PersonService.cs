@@ -16,14 +16,14 @@
 
         public PersonService(IPersistentContactContract presitentContactContract, IMapper mapper)
         {
-            this._PersistentContactContract = presitentWriteContract;
+            this._PersistentContactContract = presitentContactContract;
             this._Mapper = mapper;
         }
 
         public void WritePerson(PersonDto personDto)
         { 
-            var result = this._mapper.Map<Person>(personDto);
-            this._PresitentContactContract.WritePerson(result);
+            var result = this._Mapper.Map<Person>(personDto);
+            this._PersistentContactContract.WritePerson(result);
         }
 
         public IEnumerable<PersonDto> GetPersons()

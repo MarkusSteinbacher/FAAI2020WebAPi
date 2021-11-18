@@ -8,7 +8,7 @@
 
     public class OrderFileHandler : BaseFileHandler<Order>, IPersistentOrderContract
     {
-        protected override string FileName => "Ordes.txt";
+        protected override string FileName => "Orders.txt";
 
         public OrderFileHandler() : base(typeof(Order))
         {
