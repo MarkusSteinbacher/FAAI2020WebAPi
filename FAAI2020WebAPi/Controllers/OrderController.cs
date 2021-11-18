@@ -22,6 +22,18 @@ namespace FAAI2020WebAPi.Controllers
 		}
 
 		[HttpGet]
+		[Route("GetAllLineItemsForOrder")]
+		public ActionResult GetAllLineItemsForOrder(string orderId)
+		{
+			var result = this.orderService.GetAllLineItemsOrder(orderId);
+			if (result != null && result.Any())
+			{
+				return Ok(result);
+			}
+			return NoContent();
+		}
+
+		[HttpGet]
 		public ActionResult GetOrder()
 		{
 			var result = this.orderService.GetOrders();

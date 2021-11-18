@@ -18,6 +18,19 @@
         }
 
         [HttpGet]
+        [Route("GetAllOrdersForPerson")]
+        public ActionResult GetAllOrdersForPerson(string personId)
+        {
+            var result = this._PersonService.GetAllOrdersPerson(personId);
+            if (result != null && result.Any())
+            {
+                return Ok(result);
+            }
+
+            return NoContent();
+        }
+
+        [HttpGet]
         public ActionResult Person()
         {
             var result = this._PersonService.GetPersons();

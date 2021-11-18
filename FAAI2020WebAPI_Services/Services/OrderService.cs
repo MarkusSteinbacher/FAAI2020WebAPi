@@ -13,14 +13,22 @@
 	{
 		private readonly IPersistentOrderContract presistentOrderContract;
 		private readonly IMapper mapper;
+		private readonly IPresistentLineItemContract _PresistentLineItemContract;
 
-		public OrderService(IPersistentOrderContract presistentOrderContract, IMapper mapper)
+		public OrderService(IPersistentOrderContract presistentOrderContract, IPresistentLineItemContract presistentLineItemContract ,IMapper mapper)
 		{
 			this.presistentOrderContract = presistentOrderContract;
 			this.mapper = mapper;
+			this._PresistentLineItemContract = presistentLineItemContract;
 		}
 
-		public IQueryable<OrderDto> GetOrders()
+        public IEnumerable<LineItemDto> GetAllLineItemsOrder(string orderId)
+        {
+			var lineItems = this._PresistentLineItemContract.ReadLineItems().Where(w => w.OrderId == orderId);
+			return this.mapper.Map<IEnumerable<LineItemDto>>(lineItems);
+        }
+
+        public IQueryable<OrderDto> GetOrders()
 		{
 			var result = this.mapper.Map<List<OrderDto>>(this.presistentOrderContract.ReadOrders());
 			return result.AsQueryable();

@@ -1,10 +1,11 @@
 ﻿namespace FAAI2020WebAPI_Services
 {
-	using System.Linq;
+    using System.Collections.Generic;
+    using System.Linq;
 
 	public interface ILineItemService
 	{
-		IQueryable<LineItemDto> GetLineItems();
+		IEnumerable<LineItemDto> GetLineItems();
 		void WriteLineItems(LineItemDto lineItem);
 	}
 }

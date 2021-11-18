@@ -17,11 +17,11 @@
             this.mapper = mapper;
         }
 
-		public IQueryable<LineItemDto> GetLineItems()
+		public IEnumerable<LineItemDto> GetLineItems()
 		{
-            var result = this.mapper.Map<List<LineItemDto>>(this.presistentLineItemContract.ReadLineItems());
-            return result.AsQueryable();
-        }
+			var lineItems = this.presistentLineItemContract.ReadLineItems();
+			return this.mapper.Map<IEnumerable<LineItemDto>>(lineItems);
+		}
 
 		public void WriteLineItems(LineItemDto lineItemDto)
 		{

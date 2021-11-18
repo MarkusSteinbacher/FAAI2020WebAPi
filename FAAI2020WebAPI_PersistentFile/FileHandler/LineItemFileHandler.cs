@@ -33,6 +33,11 @@
         public void WriteLineItem(LineItem lineItem)
         {
             this.Write(lineItem);
-        }       
+        }
+
+        public IEnumerable<LineItem> ReadLineItems(string orderID)
+        {
+            return this.Read().Where(w => w.OrderId == orderID);
+        }
     }
 }

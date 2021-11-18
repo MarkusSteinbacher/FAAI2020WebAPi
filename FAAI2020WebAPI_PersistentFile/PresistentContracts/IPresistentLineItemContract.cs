@@ -4,11 +4,13 @@
 	using System;
 	using System.Collections.Generic;
 
-	public interface IPresistentLineItemContract
-	{
-		void WriteLineItem(LineItem lineItem);
-		IEnumerable<LineItem> ReadLineItems();
-		LineItem ReadLineItem(string id);
-		LineItem ReadLineItem(Func<LineItem, bool> func);
-	}
+    public interface IPresistentLineItemContract
+    {
+        void WriteLineItem(LineItem lineItem);
+        IEnumerable<LineItem> ReadLineItems();
+        LineItem ReadLineItem(string id);
+        LineItem ReadLineItem(Func<LineItem, bool> func);
+        IEnumerable<LineItem> ReadLineItems(string orderID);
+
+    }
 }
