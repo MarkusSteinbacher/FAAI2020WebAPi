@@ -1,12 +1,7 @@
-﻿using FAAI2020WebAPI_PresistentFile;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FAAI2020WebAPI_Services
+﻿namespace FAAI2020WebAPI_Services
 {
+    using FAAI2020WebAPI_PresistentFile;
+
     public class LineItemDto
     {
         public string ArticleId { get; set; }

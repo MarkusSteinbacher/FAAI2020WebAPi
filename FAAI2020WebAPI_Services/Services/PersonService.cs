@@ -1,5 +1,6 @@
 ﻿namespace FAAI2020WebAPI_Services
 {
+    using AutoMapper;
     using FAAI2020WebAPI_Contract.PersitentContract;
     using FAAI2020WebAPI_PersistentFile.PresistentContracts;
     using FAAI2020WebAPI_Services.Dto;
@@ -9,11 +10,13 @@
 
     public class PersonService : IPersonService
     {
-        private readonly IPersistentContactContract _PresitentWriteContract;
+        private readonly IPersistentContactContract _PersistentContactContract;
+        private readonly IMapper _Mapper;
 
-        public PersonService(IPersistentContactContract presitentWriteContract)
+        public PersonService(IPersistentContactContract presitentWriteContract, IMapper mapper)
         {
-            this._PresitentWriteContract = presitentWriteContract;
+            this._PersistentContactContract = presitentWriteContract;
+            this._Mapper = mapper;
         }
 
         public void WriteLineItems(PersonDto person)
@@ -21,16 +24,10 @@
             throw new NotImplementedException();
         }
 
-        IEnumerable<PersonDto> GetPersons()
+       public IEnumerable<PersonDto> GetPersons()
         {
-            //this._PresitentWriteContract.ReadPersons();
-            return null;
-        }
-
-        IEnumerable<PersonDto> IPersonService.GetPersons()
-        {
-            //this._PresitentWriteContract.ReadPersons();
-            return null;
+            var persons = this._PersistentContactContract.ReadPersons();
+            return this._Mapper.Map<IEnumerable<PersonDto>>(persons);
         }
     }
 }
