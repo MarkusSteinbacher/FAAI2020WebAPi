@@ -1,5 +1,6 @@
 ﻿namespace FAAI2020WebAPi.Controllers
 {
+    using FAAI2020WebAPI_Services.Dto;
     using FAAI2020WebAPI_Services.Services;
     using Microsoft.AspNetCore.Mvc;
     using System.Linq;
@@ -27,6 +28,15 @@
 
             return NoContent();
         }
+
+        [HttpPost]
+        public ActionResult PostPerson([FromBody] PersonDto personDto)
+        {
+            this._PersonService.WritePerson(personDto);
+            return Ok();
+        }
+
+
 
     }
 }

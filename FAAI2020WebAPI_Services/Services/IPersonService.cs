@@ -6,6 +6,6 @@
     public interface IPersonService
     {
         public IEnumerable<PersonDto> GetPersons();
-        public void WriteLineItems(PersonDto person);
+        public void WritePerson(PersonDto personDto);
     }
 }

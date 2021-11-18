@@ -8,7 +8,7 @@
 
     public class PersonFileHandler : BaseFileHandler<Person>, IPersistentContactContract
     {
-        protected override string FileName => "Orders.txt";
+        protected override string FileName => "Persons.txt";
 
         public PersonFileHandler() : base(typeof(Person))
         {
