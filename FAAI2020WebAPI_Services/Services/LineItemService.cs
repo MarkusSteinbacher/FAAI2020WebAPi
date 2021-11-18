@@ -1,7 +1,6 @@
 ﻿namespace FAAI2020WebAPI_Services
 {
 	using AutoMapper;
-	using FAAI2020WebAPI_PersistentFile;
     using FAAI2020WebAPI_PersistentFile.PresistentContracts;
     using FAAI2020WebAPI_PresistentFile;
     using System.Collections.Generic;

@@ -1,37 +1,32 @@
-﻿using FAAI2020WebAPI_Contract.PersitentContract;
-using FAAI2020WebAPI_PersistentFile.PresistentContracts;
-using FileHelpers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FAAI2020WebAPI_PersistentFile
+﻿namespace FAAI2020WebAPI_PersistentFile
 {
-    public class OrderFileHandler : BaseFileHandler<IOrder>, IPersistentOrderContract
+    using FAAI2020WebAPI_Contract.PersitentContract;
+    using FAAI2020WebAPI_PresistentFile;
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
+    public class OrderFileHandler : BaseFileHandler<Order>, IPersistentOrderContract
     {
         protected override string FileName => "Ordes.txt";
 
-        public OrderFileHandler() : base(typeof(IOrder))
+        public OrderFileHandler() : base(typeof(Order))
         {
         }
 
-        public IEnumerable<IOrder> ReadOrders()
+        public IEnumerable<Order> ReadOrders()
         {
             return this.Read();
         }
 
-        public IOrder ReadOrder(Func<IOrder, bool> func)
+        public Order ReadOrder(Func<Order, bool> func)
         {
             return this.Read().FirstOrDefault(func);
         }
 
-        public void WriteOrder(IOrder order)
+        public void WriteOrder(Order order)
         {
             this.Write(order);
         }
     }
-
-
 }

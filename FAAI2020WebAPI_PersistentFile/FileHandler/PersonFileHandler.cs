@@ -1,37 +1,32 @@
-﻿
-using FAAI2020WebAPI_Contract.PersitentContract;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FAAI2020WebAPI_PersistentFile
+﻿namespace FAAI2020WebAPI_PersistentFile
 {
-    public class PersonFileHandler : BaseFileHandler<IPerson>, IPresitentContract
-    {
-        protected override string FileName => "Ordes.txt";
+    using FAAI2020WebAPI_PersistentFile.PresistentContracts;
+    using FAAI2020WebAPI_PresisentFile;
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
 
-        public PersonFileHandler() : base(typeof(IPerson))
+    public class PersonFileHandler : BaseFileHandler<Person>, IPersistentContactContract
+    {
+        protected override string FileName => "Orders.txt";
+
+        public PersonFileHandler() : base(typeof(Person))
         {
         }
 
-        public IEnumerable<IPerson> ReadPersons()
+        public IEnumerable<Person> ReadPersons()
         {
             return this.Read();
         }
 
-        public IPerson ReadPerson(Func<IPerson, bool> func)
+        public Person ReadPerson(Func<Person, bool> func)
         {
             return this.Read().FirstOrDefault(func);
         }
 
-        public void WritePerson(IPerson person)
+        public void WritePerson(Person person)
         {
             this.Write(person);
         }
     }
-
-
-
 }

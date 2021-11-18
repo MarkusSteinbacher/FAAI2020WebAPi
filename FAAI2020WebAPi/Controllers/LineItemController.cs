@@ -1,14 +1,9 @@
-﻿using FAAI2020WebAPI_Contract.ServiceContract;
-using FAAI2020WebAPI_Model;
-using FAAI2020WebAPI_Services;
-using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace FAAI2020WebAPi.Controllers
+﻿namespace FAAI2020WebAPi.Controllers
 {
+	using FAAI2020WebAPI_Services;
+	using Microsoft.AspNetCore.Mvc;
+	using System.Linq;
+
 	[ApiController]
 	[Route("[controller]")]
 	public class LineItemController : ControllerBase

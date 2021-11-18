@@ -1,6 +1,7 @@
 ﻿using FAAI2020WebAPI_Contract.PersitentContract;
-using FAAI2020WebAPI_Contract.ServiceContract;
-using FAAI2020WebAPI_Model;
+using FAAI2020WebAPI_PresistentFile;
+using FAAI2020WebAPI_Services.Dto;
+using FAAI2020WebAPI_Services.Services;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -32,7 +33,7 @@ namespace FAAI2020WebAPi.Controllers
 		}
 
 		[HttpPost]
-		public ActionResult PostOrder([FromBody] Order order)
+		public ActionResult PostOrder([FromBody] OrderDto order)
 		{
 			this.orderService.WriteOrder(order);
 			return Ok();

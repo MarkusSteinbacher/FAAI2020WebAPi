@@ -1,9 +1,10 @@
 namespace FAAI2020WebAPi
 {
     using FAAI2020WebAPI_Contract.PersitentContract;
-    using FAAI2020WebAPI_Contract.ServiceContract;
     using FAAI2020WebAPI_PersistentFile;
+    using FAAI2020WebAPI_PersistentFile.PresistentContracts;
     using FAAI2020WebAPI_Services;
+    using FAAI2020WebAPI_Services.Services;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.Extensions.Configuration;
@@ -32,7 +33,7 @@ namespace FAAI2020WebAPi
             });
 
             services.AddTransient<IPersonService, PersonService>();
-            services.AddTransient<IPresitentContract, FileHandler>();
+            services.AddTransient<IPersistentContactContract, PersonFileHandler>();
             services.AddTransient<IOrderService, OrderService>();
             services.AddTransient<IPersistentOrderContract, OrderFileHandler>();
             services.AddTransient<ILineItemService, LineItemService>();

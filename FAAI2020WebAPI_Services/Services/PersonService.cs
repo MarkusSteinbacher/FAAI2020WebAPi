@@ -1,25 +1,36 @@
-﻿using FAAI2020WebAPI_Contract.PersitentContract;
-using FAAI2020WebAPI_Contract.ServiceContract;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FAAI2020WebAPI_Services
+﻿namespace FAAI2020WebAPI_Services
 {
+    using FAAI2020WebAPI_Contract.PersitentContract;
+    using FAAI2020WebAPI_PersistentFile.PresistentContracts;
+    using FAAI2020WebAPI_Services.Dto;
+    using FAAI2020WebAPI_Services.Services;
+    using System;
+    using System.Collections.Generic;
+
     public class PersonService : IPersonService
     {
-        private readonly IPresitentContract _PresitentWriteContract;
+        private readonly IPersistentContactContract _PresitentWriteContract;
 
-        public PersonService(IPresitentContract presitentWriteContract)
+        public PersonService(IPersistentContactContract presitentWriteContract)
         {
             this._PresitentWriteContract = presitentWriteContract;
         }
 
-        public IEnumerable<IPerson> GetPersons()
+        public void WriteLineItems(PersonDto person)
         {
-            return this._PresitentWriteContract.Read();
+            throw new NotImplementedException();
+        }
+
+        IEnumerable<PersonDto> GetPersons()
+        {
+            //this._PresitentWriteContract.ReadPersons();
+            return null;
+        }
+
+        IEnumerable<PersonDto> IPersonService.GetPersons()
+        {
+            //this._PresitentWriteContract.ReadPersons();
+            return null;
         }
     }
 }

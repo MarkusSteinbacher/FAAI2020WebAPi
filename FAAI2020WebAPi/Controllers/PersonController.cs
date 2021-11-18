@@ -1,12 +1,9 @@
-﻿using FAAI2020WebAPI_Contract.ServiceContract;
-using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace FAAI2020WebAPi.Controllers
+﻿namespace FAAI2020WebAPi.Controllers
 {
+    using FAAI2020WebAPI_Services.Services;
+    using Microsoft.AspNetCore.Mvc;
+    using System.Linq;
+
     [ApiController]
     [Route("[controller]")]
 

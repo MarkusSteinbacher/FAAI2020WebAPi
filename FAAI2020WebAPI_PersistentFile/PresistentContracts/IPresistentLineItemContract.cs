@@ -1,13 +1,9 @@
-﻿using FAAI2020WebAPI_Model;
-using FAAI2020WebAPI_PresistentFile;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FAAI2020WebAPI_PersistentFile.PresistentContracts
+﻿namespace FAAI2020WebAPI_PersistentFile.PresistentContracts
 {
+	using FAAI2020WebAPI_PresistentFile;
+	using System;
+	using System.Collections.Generic;
+
 	public interface IPresistentLineItemContract
 	{
 		void WriteLineItem(LineItem lineItem);

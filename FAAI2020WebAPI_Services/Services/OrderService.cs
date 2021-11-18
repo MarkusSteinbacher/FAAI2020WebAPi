@@ -1,18 +1,14 @@
-﻿using AutoMapper;
-using FAAI2020WebAPI_Contract.PersitentContract;
-using FAAI2020WebAPI_Contract.ServiceContract;
-using FAAI2020WebAPI_PersistentFile.PresistentContracts;
-using FAAI2020WebAPI_PresistentFile;
-using FAAI2020WebAPI_Services.Dto;
-using FAAI2020WebAPI_Services.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FAAI2020WebAPI_Services
+﻿namespace FAAI2020WebAPI_Services
 {
+	using AutoMapper;
+	using FAAI2020WebAPI_Contract.PersitentContract;
+	using FAAI2020WebAPI_PersistentFile.PresistentContracts;
+	using FAAI2020WebAPI_PresistentFile;
+	using FAAI2020WebAPI_Services.Dto;
+	using FAAI2020WebAPI_Services.Services;
+	using System.Collections.Generic;
+	using System.Linq;
+
 	public class OrderService : IOrderService
 	{
 		private readonly IPersistentOrderContract presistentOrderContract;

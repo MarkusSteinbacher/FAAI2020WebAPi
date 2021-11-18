@@ -1,11 +1,10 @@
-﻿using FAAI2020WebAPI_Contract.PersitentContract;
-using FileHelpers;
-using System;
-
-namespace FAAI2020WebAPI_PresisentFile
+﻿namespace FAAI2020WebAPI_PresisentFile
 {
+    using FileHelpers;
+    using System;
+
     [DelimitedRecord(";")]
-    public class Person : IPerson
+    public class Person 
     {
 		public string PersonId { get; set; }
 		public string FirstName { get; set; }

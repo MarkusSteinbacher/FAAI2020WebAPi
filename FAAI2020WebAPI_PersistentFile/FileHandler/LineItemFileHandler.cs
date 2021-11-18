@@ -3,7 +3,8 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using FAAI2020WebAPI_Model;
+    using FAAI2020WebAPI_PersistentFile.PresistentContracts;
+    using FAAI2020WebAPI_PresistentFile;
 
     public class LineItemFileHandler : BaseFileHandler<LineItem>, IPresistentLineItemContract
 	{

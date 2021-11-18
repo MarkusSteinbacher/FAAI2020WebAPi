@@ -1,13 +1,7 @@
-﻿using FAAI2020WebAPI_Contract.PersitentContract;
-using FileHelpers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FAAI2020WebAPI_PresistentFile
+﻿namespace FAAI2020WebAPI_PresistentFile
 {
+	using FileHelpers;
+
 	[DelimitedRecord(";")]
 	public class LineItem
 	{
