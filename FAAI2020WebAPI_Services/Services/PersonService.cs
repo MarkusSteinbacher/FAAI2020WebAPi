@@ -11,13 +11,13 @@
 
     public class PersonService : IPersonService
     {
-        private readonly IPersistentContactContract _PresitentContactContract;
-        private readonly IMapper _mapper;
+        private readonly IPersistentContactContract _PersistentContactContract;
+        private readonly IMapper _Mapper;
 
         public PersonService(IPersistentContactContract presitentContactContract, IMapper mapper)
         {
-            this._PresitentContactContract = presitentContactContract;
-            this._mapper = mapper;
+            this._PersistentContactContract = presitentWriteContract;
+            this._Mapper = mapper;
         }
 
         public void WritePerson(PersonDto personDto)
@@ -28,8 +28,8 @@
 
         public IEnumerable<PersonDto> GetPersons()
         {
-            var persons = this._PresitentContactContract.ReadPersons();
-            return this._mapper.Map<IEnumerable<PersonDto>>(persons);
+            var persons = this._PersistentContactContract.ReadPersons();
+            return this._Mapper.Map<IEnumerable<PersonDto>>(persons);
         }
     }
 }
