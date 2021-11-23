@@ -7,6 +7,9 @@
     {
         public IEnumerable<PersonDto> GetPersons();
         public void WritePerson(PersonDto personDto);
-        public IEnumerable<OrderDto> GetAllOrdersPerson(string personId);
+        public PersonDto GetAllOrdersPerson(string personId);
+        public PersonDto GetPerson(string personId);
+        public void WriteWholeOrder(PersonDto person);
+        public void DeletePerson(PersonDto person);
     }
 }

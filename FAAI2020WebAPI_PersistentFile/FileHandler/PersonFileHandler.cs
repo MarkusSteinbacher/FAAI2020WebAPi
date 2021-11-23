@@ -5,6 +5,7 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.IO;
 
     public class PersonFileHandler : BaseFileHandler<Person>, IPersistentContactContract
     {
@@ -27,6 +28,14 @@
         public void WritePerson(Person person)
         {
             this.Write(person);
+        }
+
+        public void DeletePerson(Person person)
+        {
+            if (!this.TryDelete(person))
+            {
+                throw new FileNotFoundException();
+            }
         }
     }
 }

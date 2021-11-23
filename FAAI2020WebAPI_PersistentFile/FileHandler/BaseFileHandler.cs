@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace FAAI2020WebAPI_PersistentFile
 {
@@ -44,6 +45,20 @@ namespace FAAI2020WebAPI_PersistentFile
                 return true;
             }
             //ToDo: Log!
+            return false;
+        }
+
+        protected bool TryDelete(T item) // mit baseid
+        {
+            if (this.TryResolveFilePath(out var path))
+            {
+                var tempFile = Path.GetTempFileName();
+                var linesToKeep = File.ReadLines(path).Where(i => !(i.StartsWith(item.ToString())));
+                File.WriteAllLines(tempFile, linesToKeep);
+                File.Delete(path);
+                File.Move(tempFile, path);
+                return true;
+            }
             return false;
         }
     }

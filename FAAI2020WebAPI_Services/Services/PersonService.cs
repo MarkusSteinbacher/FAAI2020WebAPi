@@ -4,6 +4,7 @@
     using FAAI2020WebAPI_Contract.PersitentContract;
     using FAAI2020WebAPI_PersistentFile.PresistentContracts;
     using FAAI2020WebAPI_PresisentFile;
+    using FAAI2020WebAPI_PresistentFile;
     using FAAI2020WebAPI_Services.Dto;
     using FAAI2020WebAPI_Services.Services;
     using System;
@@ -37,8 +38,9 @@
             return this._Mapper.Map<IEnumerable<PersonDto>>(persons);
         }
 
-        public IEnumerable<OrderDto> GetAllOrdersPerson(string personId)
+        public PersonDto GetAllOrdersPerson(string personId)
         {
+            var person = this.GetPerson(personId);
             var tempList = new List<OrderDto>();
             var orders = this._OrderContract.ReadOrders().Where(w => w.PersonId == personId);
             foreach (var order in orders)
@@ -48,7 +50,34 @@
                 orderDto.LineItems = this._Mapper.Map<List<LineItemDto>>(lineItems);
                 tempList.Add(orderDto);
             }
-            return tempList;
+            person.Orders = tempList;
+            return person;
+        }
+
+        public PersonDto GetPerson(string personId)
+        {
+            var person = this._PersistentContactContract.ReadPersons().FirstOrDefault(w => w.PersonId == personId);
+            return this._Mapper.Map<PersonDto>(person);
+        }
+
+        public void WriteWholeOrder(PersonDto person)
+        {
+            var result = this._Mapper.Map<Person>(person);
+            this.WritePerson(person);
+            foreach (var order in person.Orders)
+            {
+                this._OrderContract.WriteOrder(this._Mapper.Map<Order>(order));
+                foreach (var lineItem in order.LineItems)
+                {
+                    this._LineItemContract.WriteLineItem(this._Mapper.Map<LineItem>(lineItem));
+                }
+            }
+        }
+
+        public void DeletePerson(PersonDto person)
+        {
+            var result = this._Mapper.Map<Person>(person);
+            this._PersistentContactContract.DeletePerson(result);
         }
     }
 }

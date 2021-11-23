@@ -2,6 +2,7 @@
 {
     using FileHelpers;
     using System;
+    using System.Collections.Generic;
 
     [DelimitedRecord(";")]
     public class Person 
@@ -11,5 +12,10 @@
         public string LastName { get; set; }
         [FieldConverter(ConverterKind.Date, "ddMMyyyy")]
         public DateTime DayOfBirth { get; set; }
+
+        public override string ToString()
+        {
+            return this.PersonId;
+        }
     }
 }
