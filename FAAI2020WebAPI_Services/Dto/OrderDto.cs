@@ -4,9 +4,8 @@
     using System;
     using System.Collections.Generic;
 
-    public class OrderDto
+    public class OrderDto : BaseDto
     {
-        public string DocumentId { get; set; }
         public string PersonId { get; set; }
         public string Subject { get; set; }
         public DateTime Date { get; set; }

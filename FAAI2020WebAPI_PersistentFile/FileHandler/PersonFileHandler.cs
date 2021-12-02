@@ -37,5 +37,14 @@
                 throw new FileNotFoundException();
             }
         }
+
+        public void UpdatePerson(Person person)
+        {
+            if (!this.TryUpdate(person))
+            {
+                throw new FileNotFoundException();
+            }
+        }
+
     }
 }

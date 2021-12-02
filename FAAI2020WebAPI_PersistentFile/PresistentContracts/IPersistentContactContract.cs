@@ -10,5 +10,6 @@
         public IEnumerable<Person> ReadPersons();
         public Person ReadPerson(Func<Person, bool> func);
         public void DeletePerson(Person person);
+        public void UpdatePerson(Person person);
     }
 }

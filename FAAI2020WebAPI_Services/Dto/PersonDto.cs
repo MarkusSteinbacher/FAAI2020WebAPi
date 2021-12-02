@@ -5,9 +5,8 @@
     using System;
     using System.Collections.Generic;
 
-    public class PersonDto
+    public class PersonDto : BaseDto
     {
-        public string PersonId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
 
@@ -19,7 +18,6 @@
         {
             return new Person()
             {
-                PersonId = this.PersonId,
                 FirstName = this.FirstName,
                 LastName = this.LastName,
                 DayOfBirth = this.DayOfBirth

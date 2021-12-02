@@ -1,10 +1,10 @@
 ﻿namespace FAAI2020WebAPI_Services
 {
     using FAAI2020WebAPI_PresistentFile;
+    using FAAI2020WebAPI_Services.Dto;
 
-    public class LineItemDto
+    public class LineItemDto : BaseDto
     {
-        public string OrderId { get; set; }
         public string ArticleId { get; set; }
         public double Quantity { get; set; }
         public string Text { get; set; }

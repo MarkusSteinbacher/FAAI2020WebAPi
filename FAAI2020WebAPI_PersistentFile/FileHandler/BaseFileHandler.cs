@@ -1,4 +1,5 @@
-﻿using FileHelpers;
+﻿using FAAI2020WebAPI_PersistentFile.Models;
+using FileHelpers;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -6,7 +7,7 @@ using System.Linq;
 
 namespace FAAI2020WebAPI_PersistentFile
 {
-    public abstract class BaseFileHandler<T>
+    public abstract class BaseFileHandler<T> where T : BaseModel
     {
         protected abstract string FileName { get; }
 
@@ -48,12 +49,12 @@ namespace FAAI2020WebAPI_PersistentFile
             return false;
         }
 
-        protected bool TryDelete(T item) // mit baseid
+        protected bool TryDelete(T item)
         {
             if (this.TryResolveFilePath(out var path))
             {
                 var tempFile = Path.GetTempFileName();
-                var linesToKeep = File.ReadLines(path).Where(i => !(i.StartsWith(item.ToString())));
+                var linesToKeep = File.ReadLines(path).Where(i => !(i.StartsWith(item.Id)));
                 File.WriteAllLines(tempFile, linesToKeep);
                 File.Delete(path);
                 File.Move(tempFile, path);

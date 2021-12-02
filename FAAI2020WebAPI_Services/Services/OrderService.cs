@@ -24,7 +24,7 @@
 
         public IEnumerable<LineItemDto> GetAllLineItemsOrder(string orderId)
         {
-			var lineItems = this._PresistentLineItemContract.ReadLineItems().Where(w => w.OrderId == orderId);
+			var lineItems = this._PresistentLineItemContract.ReadLineItems().Where(w => w.Id == orderId);
 			return this.mapper.Map<IEnumerable<LineItemDto>>(lineItems);
         }
 

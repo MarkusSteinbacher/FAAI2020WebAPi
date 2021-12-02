@@ -79,6 +79,18 @@
             return Ok();
         }
 
+        [HttpPut]
+        [Route("UpdatePerson")]
+        public ActionResult UpdatePerson(string id, [FromBody] PersonDto personDto)
+        {
+            var result = this._PersonService.GetPerson(id);
+            this.DeletePerson(id);
+            this.PostPerson(personDto);
+            return Ok();
+        }
+
+
+
 
 
     }

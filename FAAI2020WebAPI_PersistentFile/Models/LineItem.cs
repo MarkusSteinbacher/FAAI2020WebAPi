@@ -1,11 +1,11 @@
 ﻿namespace FAAI2020WebAPI_PresistentFile
 {
-	using FileHelpers;
+    using FAAI2020WebAPI_PersistentFile.Models;
+    using FileHelpers;
 
 	[DelimitedRecord(";")]
-	public class LineItem
+	public class LineItem : BaseModel
 	{
-        public string OrderId { get; set; }
         public string ArticleId { get; set; }
 		public double Quantity { get; set; }
 		public string Text { get; set; }

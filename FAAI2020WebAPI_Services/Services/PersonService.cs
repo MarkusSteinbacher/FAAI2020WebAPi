@@ -46,7 +46,7 @@
             foreach (var order in orders)
             {
                 var orderDto = this._Mapper.Map<OrderDto>(order);
-                var lineItems = this._LineItemContract.ReadLineItems(order.DocumentId).ToList();
+                var lineItems = this._LineItemContract.ReadLineItems(order.Id).ToList();
                 orderDto.LineItems = this._Mapper.Map<List<LineItemDto>>(lineItems);
                 tempList.Add(orderDto);
             }
@@ -56,7 +56,7 @@
 
         public PersonDto GetPerson(string personId)
         {
-            var person = this._PersistentContactContract.ReadPersons().FirstOrDefault(w => w.PersonId == personId);
+            var person = this._PersistentContactContract.ReadPersons().FirstOrDefault(w => w.Id == personId);
             return this._Mapper.Map<PersonDto>(person);
         }
 
@@ -79,5 +79,7 @@
             var result = this._Mapper.Map<Person>(person);
             this._PersistentContactContract.DeletePerson(result);
         }
+
+        
     }
 }
