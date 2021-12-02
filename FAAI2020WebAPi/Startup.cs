@@ -38,6 +38,9 @@ namespace FAAI2020WebAPi
             services.AddTransient<IPersistentOrderContract, OrderFileHandler>();
             services.AddTransient<ILineItemService, LineItemService>();
             services.AddTransient<IPresistentLineItemContract, LineItemFileHandler>();
+            services.AddTransient(typeof(ILogger<>), typeof(Logger<>));
+
+            //services.AddLogging();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -53,6 +56,7 @@ namespace FAAI2020WebAPi
             app.UseRouting();
 
             app.UseAuthorization();
+            app.UseMiddleware<MyMiddleware>();
 
             app.UseEndpoints(endpoints =>
             {
